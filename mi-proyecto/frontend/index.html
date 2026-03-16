@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛒 TechStore | Tu Tienda Online</title>
+    <!-- Pico.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #6366f1; /* Indigo Moderno */
+            --primary-hover: #4f46e5;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        body { background-color: #f8fafc; }
+        
+        nav {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .logo { font-size: 1.5rem; color: var(--primary); }
+
+        article {
+            border: none;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.2s ease;
+            background: white;
+        }
+
+        article:hover { transform: translateY(-5px); }
+
+        .product-card header {
+            background: #eef2ff;
+            color: var(--primary);
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .price-tag {
+            font-size: 1.5rem;
+            color: #1e293b;
+            font-weight: 800;
+            margin: 1rem 0;
+        }
+
+        button {
+            background-color: var(--primary);
+            border: none;
+            font-weight: bold;
+        }
+
+        button.secondary { background-color: #64748b; }
+
+        .auth-card { max-width: 500px; margin: 0 auto; }
+
+        table th { background: #f1f5f9; }
+
+        .badge {
+            padding: 0.2rem 0.6rem;
+            border-radius: 10px;
+            background: #dcfce7;
+            color: #166534;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li class="logo"><i class="fas fa-rocket"></i> <strong>TechStore</strong></li>
+        </ul>
+        <ul>
+            <li><span id="user-display" class="badge">Invitado</span></li>
+            <li><a href="#" onclick="logout()" class="secondary"><i class="fas fa-sign-out-alt"></i></a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        
+        <!-- SECCIÓN: LOGIN / REGISTRO -->
+        <section id="auth-section">
+            <div class="grid">
+                <article class="auth-card">
+                    <header><i class="fas fa-user-plus"></i> Crear Cuenta</header>
+                    <input type="text" id="reg-user" placeholder="Nombre de usuario">
+                    <input type="password" id="reg-pass" placeholder="Contraseña segura">
+                    <button onclick="register()" class="contrast">Registrarse Gratis</button>
+                </article>
+
+                <article class="auth-card">
+                    <header><i class="fas fa-key"></i> Acceso Clientes</header>
+                    <input type="text" id="login-user" placeholder="Usuario">
+                    <input type="password" id="login-pass" placeholder="Contraseña">
+                    <button onclick="login()">Entrar a la Tienda</button>
+                </article>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: TIENDA -->
+        <section id="store-section" style="display:none;">
+            <div class="grid">
+                <!-- Formulario Venta -->
+                <article>
+                    <header><i class="fas fa-tag"></i> Poner algo a la venta</header>
+                    <div class="grid">
+                        <input type="text" id="p-nombre" placeholder="¿Qué vendes?">
+                        <input type="number" id="p-precio" placeholder="Precio (€)">
+                    </div>
+                    <button onclick="crearProducto()" class="outline">Publicar Producto</button>
+                </article>
+            </div>
+
+            <h2 style="margin-top: 2rem;"><i class="fas fa-shopping-bag"></i> Catálogo Exclusivo</h2>
+            <div id="lista-productos" class="grid">
+                <!-- Los productos se cargarán aquí como tarjetas -->
+            </div>
+
+            <hr>
+
+            <!-- SECCIÓN: COMPRAS -->
+            <article id="compras-section">
+                <header><i class="fas fa-history"></i> Mi Historial de Compras</header>
+                <figure>
+                    <table role="grid">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Inversión</th>
+                                <th>Fecha de Compra</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista-compras">
+                            <!-- Compras aquí -->
+                        </tbody>
+                    </table>
+                </figure>
+            </article>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
