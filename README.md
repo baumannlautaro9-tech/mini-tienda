@@ -1,6 +1,6 @@
 # 🛒 TechStore - Mini-Tienda Fullstack
 
-Proyecto desarrollado para el **Hackathon de 12 horas** (1º DAM/DAW). Una aplicación web completa para la compra y venta de productos con enfoque en seguridad y despliegue rápido.
+Proyecto desarrollado para el **Hackathon de 12 horas** (2º DAM/DAW). Una aplicación web completa para la compra y venta de productos con enfoque en seguridad y despliegue rápido.
 
 ---
 
